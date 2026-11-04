@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Molara — clinică dentară în Chișinău</title>
+  <meta name="description" content="Proiect demonstrativ: site pentru o clinică dentară fictivă din Chișinău, cu calculator de prețuri și programare online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Шапка: логотип, меню, переключатель языка -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Molara">
+        <svg viewBox="0 0 82 100" width="22" height="27" aria-hidden="true"><path d="M30 8c-14 0-24 10-24 26 0 12 5 20 8 34 2 10 4 24 11 24 6 0 6-14 9-24 1-3 3-3 4 0 3 10 3 24 9 24 7 0 9-14 11-24 3-14 8-22 8-34C76 18 66 8 52 8c-8 0-8 4-11 4s-3-4-11-4z" fill="currentColor"/></svg>
+        Molara
+      </a>
+
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="nav" data-i18n="menu">Meniu</button>
+
+      <nav class="nav" id="nav">
+        <a href="#preturi" data-i18n="navPrices">Prețuri</a>
+        <a href="#vizita" data-i18n="navVisit">Prima vizită</a>
+        <a href="#programare" data-i18n="navBooking">Programare</a>
+        <a href="#intrebari" data-i18n="navFaq">Întrebări</a>
+      </nav>
+
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ro">RO</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Первый экран -->
+    <section class="hero container">
+      <div>
+        <p class="eyebrow" data-i18n="heroEyebrow">Clinică dentară în Chișinău</p>
+        <h1 data-i18n="heroTitle">Știi prețul înainte să te așezi pe scaun.</h1>
+        <p class="hero__text" data-i18n="heroText">Calculezi costul online, alegi ora potrivită și vii fără surprize. Vorbim română, rusă și engleză.</p>
+        <div class="hero__actions">
+          <a class="button" href="#preturi" data-i18n="heroCta">Calculează costul</a>
+          <a class="button button--ghost" href="#programare" data-i18n="heroCtaSecond">Programează-te</a>
+        </div>
+      </div>
+
+      <!-- Пример сметы: показывает главную идею сайта -->
+      <aside class="receipt" aria-hidden="true">
+        <p class="receipt__title" data-i18n="receiptTitle">Exemplu de deviz</p>
+        <p class="receipt__row"><span data-i18n="service_consult">Consultație</span><span>200 MDL</span></p>
+        <p class="receipt__row"><span data-i18n="service_clean">Igienizare profesională</span><span>900 MDL</span></p>
+        <p class="receipt__row"><span data-i18n="service_filling">Plombă fotopolimerică</span><span>800 MDL</span></p>
+        <p class="receipt__row receipt__row--total"><span data-i18n="total">Total</span><span>1 900 MDL</span></p>
+      </aside>
+    </section>
+
+    <!-- Калькулятор стоимости -->
+    <section class="section section--tint" id="preturi">
+      <div class="container">
+        <h2 data-i18n="calcTitle">Calculează costul tratamentului</h2>
+        <p class="section__lead" data-i18n="calcLead">Alege serviciile și cantitatea. Suma se actualizează imediat.</p>
+
+        <div class="calc">
+          <ul class="calc__list" id="serviceList"></ul>
+
+          <aside class="calc__summary">
+            <div class="currency" role="group" aria-labelledby="currencyLabel">
+              <span id="currencyLabel" data-i18n="currency">Valută</span>
+              <button type="button" data-currency="MDL">MDL</button>
+              <button type="button" data-currency="EUR">EUR</button>
+            </div>
+            <p class="calc__total-label" data-i18n="total">Total</p>
+            <p class="calc__total" id="calcTotal" aria-live="polite">0 MDL</p>
+            <p class="calc__note" data-i18n="calcNote">Preț orientativ. Suma finală se confirmă la consultație.</p>
+            <button type="button" class="button button--wide" id="usePlan" data-i18n="calcCta">Programează-te cu acest plan</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Как проходит первый визит -->
+    <section class="section container" id="vizita">
+      <h2 data-i18n="visitTitle">Cum decurge prima vizită</h2>
+      <ol class="steps">
+        <li><h3 data-i18n="step1Title">Consultație</h3><p data-i18n="step1Text">Medicul examinează dinții și răspunde la întrebările tale.</p></li>
+        <li><h3 data-i18n="step2Title">Plan scris</h3><p data-i18n="step2Text">Primești planul de tratament și prețul pentru fiecare etapă.</p></li>
+        <li><h3 data-i18n="step3Title">Decizia ta</h3><p data-i18n="step3Text">Începi când ești gata. Nu există nicio obligație după consultație.</p></li>
+      </ol>
+    </section>
+
+    <!-- Форма записи -->
+    <section class="section section--dark" id="programare">
+      <div class="container booking">
+        <div>
+          <h2 data-i18n="bookingTitle">Programează o vizită</h2>
+          <p class="section__lead" data-i18n="bookingLead">Alege ziua și ora. Lucrăm de luni până sâmbătă, 09:00–17:00.</p>
+        </div>
+
+        <form id="bookingForm" novalidate>
+          <label for="name" data-i18n="fieldName">Nume și prenume</label>
+          <input id="name" name="name" autocomplete="name">
+          <p class="error" id="nameError"></p>
+
+          <label for="phone" data-i18n="fieldPhone">Telefon</label>
+          <input id="phone" name="phone" type="tel" placeholder="+373 69 000 000" autocomplete="tel">
+          <p class="error" id="phoneError"></p>
+
+          <label for="date" data-i18n="fieldDate">Data</label>
+          <input id="date" name="date" type="date">
+          <p class="error" id="dateError"></p>
+
+          <fieldset class="slots-field">
+            <legend data-i18n="fieldTime">Ora</legend>
+            <div class="slots" id="slots"></div>
+          </fieldset>
+          <p class="error" id="slotError"></p>
+
+          <label for="comment" data-i18n="fieldComment">Comentariu (opțional)</label>
+          <textarea id="comment" name="comment" rows="3"></textarea>
+
+          <button class="button button--wide" type="submit" data-i18n="submit">Confirmă programarea</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Частые вопросы: details работает без JavaScript -->
+    <section class="section container faq" id="intrebari">
+      <h2 data-i18n="faqTitle">Întrebări frecvente</h2>
+      <details><summary data-i18n="faq1Q">Trebuie să fac programare?</summary><p data-i18n="faq1A">Da, programarea ne ajută să evităm așteptarea. Urgențele sunt primite în aceeași zi, dacă există locuri.</p></details>
+      <details><summary data-i18n="faq2Q">Tratați pacienți din alte țări?</summary><p data-i18n="faq2A">Da. Putem grupa procedurile în câteva vizite apropiate, ca să scurtăm șederea în Chișinău.</p></details>
+      <details><summary data-i18n="faq3Q">Cum pot plăti?</summary><p data-i18n="faq3A">Numerar sau card, în lei moldovenești. Prețul în euro este doar informativ.</p></details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footerDemo">Proiect demonstrativ pentru portofoliu. Clinica, prețurile și datele de contact sunt fictive.</p>
+    </div>
+  </footer>
+
+  <!-- Окно подтверждения записи -->
+  <dialog id="successDialog" class="dialog">
+    <h2 data-i18n="successTitle">Programare înregistrată</h2>
+    <p id="successText"></p>
+    <form method="dialog"><button class="button" data-i18n="close">Închide</button></form>
+  </dialog>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
